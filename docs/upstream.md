@@ -2,48 +2,58 @@
 schema_version: 1
 id: STD-UPSTREAM
 type: standard
-title: "Переиспользование upstream skills"
+title: "Граница с upstream и процесс"
 status: draft
 language: ru
 owner: "Сопровождающие репозитория"
 created: "2026-11-21"
-updated: "2026-11-21"
-related: []
+updated: "2026-11-23"
+related: [STD-ARTIFACTS]
 ---
 
-# Переиспользование upstream skills
+# Граница с upstream и процесс
 
-Основание: [README upstream](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/README.md), commit `8c99fa36d90068c82d547f7c12a9d67a3e95f4ee` (редакция upstream 0.6.17). Версия закреплена в [lock](../upstream.lock.yaml). Таблица связывает все 26 skills с расширением документации; это не замена их инструкций и не требование запускать все навыки для каждой задачи.
+Базовый процесс — upstream skills [addyosmani/agent-skills](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/README.md), commit `8c99fa36d90068c82d547f7c12a9d67a3e95f4ee` (редакция upstream 0.6.17); версия закреплена в [lock](../upstream.lock.yaml). Все 26 upstream skills действуют в оригинале: надстройка не создаёт дублирующих skills и не переписывает их инструкции. Карта ниже — не замена их инструкций и не требование запускать все навыки для каждой задачи; она показывает этапы, на которых обновляются артефакты надстройки, и навыки, к которым надстройка что-то добавляет.
 
-| Skill (оригинальный источник) | Переиспользование | Наше дополнение |
-| --- | --- | --- |
-| [using-agent-skills](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/using-agent-skills/SKILL.md) | Выбор применимых навыков | Учитывать профиль и capabilities |
-| [interview-me](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/interview-me/SKILL.md) | Уточнение намерения | Русские требования и открытые вопросы |
-| [idea-refine](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/idea-refine/SKILL.md) | Развитие идеи | Инициатива при нескольких связанных изменениях |
-| [spec-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/spec-driven-development/SKILL.md) | Спецификация и её gates | Русская SPEC + frontmatter; карта возможностей |
-| [constraint-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/constraint-driven-development/SKILL.md) | Измеримые ограничения | CONSTRAINTS с владельцами исключений |
-| [planning-and-task-breakdown](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/planning-and-task-breakdown/SKILL.md) | План и задачи | Русский план; один источник задач |
-| [incremental-implementation](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/incremental-implementation/SKILL.md) | Вертикальные срезы | Обновлять затронутые документы вместе с кодом |
-| [test-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/test-driven-development/SKILL.md) | Проверка изменения поведения | Связь результатов с критериями |
-| [context-engineering](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/context-engineering/SKILL.md) | Рабочий контекст | Загружать выбранные версии, HLD и актуальные ADR |
-| [source-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/source-driven-development/SKILL.md) | Первичные технические источники | Ссылки sources; стек определяет платформа |
-| [doubt-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/doubt-driven-development/SKILL.md) | Проверка решений при применимости | Выводы связывать с артефактами и доказательствами |
-| [frontend-ui-engineering](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/frontend-ui-engineering/SKILL.md) | Интерфейс пользователя | UI-контракты и требования в SPEC/LLD |
-| [api-and-interface-design](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/api-and-interface-design/SKILL.md) | Границы и контракты | API/Event/Data документы со ссылкой на первоисточник |
-| [browser-testing-with-devtools](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/browser-testing-with-devtools/SKILL.md) | Проверка браузерного поведения | Результаты в разделе проверки плана или задачи |
-| [debugging-and-error-recovery](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/debugging-and-error-recovery/SKILL.md) | Диагностика и восстановление | Подтверждённые причины и регрессионная проверка |
-| [code-review-and-quality](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/code-review-and-quality/SKILL.md) | Review перед merge | Проверка влияния на документацию |
-| [code-simplification](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/code-simplification/SKILL.md) | Упрощение реализации | LLD обновляется при изменении устройства |
-| [security-and-hardening](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/security-and-hardening/SKILL.md) | Безопасность | Анализ угроз и принятых рисков |
-| [performance-optimization](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/performance-optimization/SKILL.md) | Измерение производительности | NFR и доказательства результата |
-| [accessibility-engineering](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/accessibility-engineering/SKILL.md) | Доступность UI | Критерии и результаты проверки в SPEC |
-| [git-workflow-and-versioning](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/git-workflow-and-versioning/SKILL.md) | История изменений | Документы в Git продукта |
-| [ci-cd-and-automation](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/ci-cd-and-automation/SKILL.md) | Проверки и доставка | Проверки артефактов наряду с командами платформы |
-| [deprecation-and-migration](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/deprecation-and-migration/SKILL.md) | Вывод из эксплуатации и миграции | История ADR, карта перехода и rollback |
-| [documentation-and-adrs](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/documentation-and-adrs/SKILL.md) | Документация и решения | HLD/LLD, русский язык, метаданные, каталог артефактов |
-| [observability-and-instrumentation](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/observability-and-instrumentation/SKILL.md) | Наблюдаемость | Эксплуатация и измеримые NFR |
-| [shipping-and-launch](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/shipping-and-launch/SKILL.md) | Готовность выпуска | CHANGELOG, эксплуатационные разделы HLD/LLD и проверка фактического состояния |
+Порядок предпочтений: оригинальный skill → соглашения продукта → минимальное расширение только для непокрытой обязанности. Минимальное расширение для непокрытой обязанности — артефакты надстройки — упаковано в собственный скилл стандарта `software-development-workflow-addons`; он не переписывает и не заменяет upstream skills. SPEC, планы, задачи, CONSTRAINTS, ADR и CHANGELOG остаются в конвенциях upstream (`spec/`, `tasks/plan.md`, `tasks/todo.md`, `CONSTRAINTS.md`, каталог решений), а их содержание в продукте пишется на русском — см. [каталог артефактов](artifacts.md). Примеры upstream не являются требованиями к стеку продукта; оригинальные файлы skills и их supporting references устанавливаются штатным способом.
 
-Порядок предпочтений: оригинальный skill → соглашения продукта → минимальное расширение только для непокрытой обязанности. HLD/LLD, метаданные, долг и инициативы здесь определены как артефакты существующего процесса, поэтому отдельные дублирующие skills пока не создаются.
+## Этапы процесса
 
-Примеры upstream не являются требованиями к стеку продукта. Проектные соглашения меняют представление и пути в поддерживаемых местах, но не убирают инженерную проверку и согласования. Оригинальные файлы skills и их supporting references устанавливаются штатным способом; их содержание в этот репозиторий не включено.
+| Этап | Основные skills upstream | Дополнение надстройки | Условие завершения |
+| --- | --- | --- | --- |
+| Контекст | `using-agent-skills`, `context-engineering` | Прочитать конфигурацию, платформу и HLD | Известны версии, профиль, ограничения и источник задач |
+| Уточнение | `interview-me`, `idea-refine`, `spec-driven-development` | Требования и открытые вопросы — на русском | Критерии проверяемы, scope определён; пройдены применимые согласования upstream |
+| Проектирование | `api-and-interface-design`, `documentation-and-adrs`, `constraint-driven-development` | Влияние на HLD и его список ADR; контракты в `docs/api`, `docs/events`, `docs/data` | Определены контракты, NFR и затронутые документы |
+| Планирование | `planning-and-task-breakdown` | План и задачи ведутся по конвенциям upstream | Зависимости, критерии и проверки есть; чужой незавершённый план сохранён |
+| Реализация | `incremental-implementation`, `test-driven-development`, `source-driven-development` | Код и затронутая документация изменяются вместе | Вертикальный срез подтверждён проверками |
+| Проверка | `debugging-and-error-recovery`, применимые специализированные skills | Доказательства приёмки, совместимости, актуальности документов | Обязательные проверки пройдены; ограничения явно перечислены |
+| Review | `code-review-and-quality`, `documentation-and-adrs` | Сверка SPEC → код → HLD; фиксация подтверждённого долга в `docs/debt` | Нет необъяснённых расхождений; изменения документации проверены |
+| Выпуск | `git-workflow-and-versioning`, `ci-cd-and-automation`, `shipping-and-launch`, `observability-and-instrumentation` | Эксплуатационные разделы HLD; rollback; целевое состояние сверяется с фактическим | Выполнены правила платформы и продукта, приложены доказательства |
+| Развитие | `deprecation-and-migration`, `performance-optimization`, `code-simplification` | Долг в `docs/debt` → задача upstream-плана → SPEC upstream | Эффект проверен; закрытие долга имеет доказательство |
+
+Skills по UI, браузеру, доступности и безопасности выбираются по области изменения; их дополнения к документам надстройки перечислены ниже. Оценка влияния и результаты проверки записываются в разделах существующего плана или задачи — отдельные документы для них не создаются. Эксплуатация и безопасность описываются в HLD, а проверяемые требования — в SPEC и задачах.
+
+До изменения: определить затронутые документы и обозначить целевое состояние. После: обновить фактическое состояние и приложить проверку. Если влияние отсутствует, кратко объяснить почему. Не менять несвязанные SPEC при локальной правке.
+
+Полный цикл SPEC и согласований применяется в случаях, заданных upstream. Сам профиль не отменяет gates навыка. Для исправления опечатки или иной самодостаточной малой правки применяются исключения upstream, а не создаётся формальная SPEC задним числом.
+
+Планы, задачи и их архивирование ведутся по конвенциям upstream `planning-and-task-breakdown`: не перезаписывать незавершённый план другой работы и согласовать разрешение конфликта до правки.
+
+Задачи ведутся в выбранном источнике по upstream-конвенции — `tasks/todo.md` или внешний трекер. Документы надстройки ссылаются на задачи через `external_refs` вместо дублирования статусов.
+
+## Дополнения к навыкам
+
+| Навык upstream | Дополнение надстройки |
+| --- | --- |
+| `using-agent-skills` | Выбор навыков с учётом профиля и `capabilities` |
+| `context-engineering` | Загружать выбранные версии стандарта, платформы и HLD |
+| `api-and-interface-design` | Контракты в `docs/api/<boundary>.md` и `docs/events/<event>.md` со ссылкой на машинный первоисточник |
+| `documentation-and-adrs` | HLD целиком в `docs/hld/README.md` со связанным списком принятых ADR и ссылками на каталог решений; русский язык; ADR — upstream-конвенция |
+| `incremental-implementation`, `code-simplification` | Затронутые документы обновляются вместе с кодом |
+| `code-review-and-quality` | Проверка влияния на документацию и сверка SPEC → код → HLD |
+| `security-and-hardening` | Анализ угроз и принятых рисков в HLD |
+| `performance-optimization`, `observability-and-instrumentation` | Измеримые NFR, эксплуатация и доказательства результата |
+| `shipping-and-launch` | Эксплуатационные разделы HLD; CHANGELOG — upstream-конвенция |
+| `git-workflow-and-versioning` | Документы надстройки хранятся в Git продукта |
+
+Остальные 14 skills — `interview-me`, `idea-refine`, `spec-driven-development`, `constraint-driven-development`, `planning-and-task-breakdown`, `test-driven-development`, `source-driven-development`, `doubt-driven-development`, `frontend-ui-engineering`, `browser-testing-with-devtools`, `debugging-and-error-recovery`, `accessibility-engineering`, `ci-cd-and-automation`, `deprecation-and-migration` — действуют в оригинале: их артефакты остаются в upstream-конвенциях, а системные последствия (UI-требования, доступность, диагностика) отражаются в HLD и критериях задач.
