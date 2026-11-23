@@ -7,27 +7,25 @@ status: draft
 language: ru
 owner: "Учебная команда бронирования"
 created: "2026-11-21"
-updated: "2026-11-21"
+updated: "2026-11-23"
 related: []
 ---
 
 # Примеры артефактов и референсы
 
-Здесь собраны короткие авторские примеры для учебного сервиса бронирования переговорных. Они показывают объём и связи документов, а не реальную реализацию. Все решения, численные цели и сценарии условны; проверки не запускались. Предлагаемая архитектура помечена `target`, ADR — `proposed`.
+Здесь собраны короткие авторские примеры для учебного сервиса бронирования переговорных. Они показывают объём и связи документов, а не реальную реализацию. Все решения, численные цели и сценарии условны; проверки не запускались. Предлагаемая архитектура помечена `target`.
 
 | Пример | Что показывает | Куда помещать в продукте |
 | --- | --- | --- |
-| [HLD](hld/README.md) | Контекст, компоненты, размещение и NFR в одном файле | `docs/architecture/hld/README.md` |
-| [LLD](lld/booking.md) | Алгоритм бронирования и обработку повторов | `docs/architecture/lld/booking/README.md` |
-| [ADR](decisions/ADR-0101.md) | Альтернативы, выбор и последствия со схемой | `docs/architecture/decisions/ADR-NNNN.md` |
-| [Данные](data/booking.md) | ER-схему и инварианты без дублирования SQL | `docs/contracts/data/booking.md` |
-| [Событие](events/booking-created.md) | Производителя, потребителя и повторы доставки | `docs/contracts/events/booking-created.md` |
+| [HLD](hld/README.md) | Контекст, компоненты, размещение и NFR в одном файле | `docs/hld/README.md` |
+| [API](api/booking.md) | Синхронный контракт: коды ошибок и идемпотентность | `docs/api/<boundary>.md` |
+| [Данные](data/README.md) | ER-схему и инварианты без дублирования SQL | `docs/data/README.md` |
+| [Событие](events/booking-created.md) | Производителя, потребителя и повторы доставки | `docs/events/<event>.md` |
 | [Долг](debt/DEBT-0101.md) | Воспроизводимую проблему и критерий закрытия | `docs/debt/DEBT-NNNN.md` |
-| [Инициатива](initiatives/INIT-0101.md) | Переход от проблемы к измеримому результату | `docs/initiatives/INIT-NNNN.md` |
 
-Для HLD использован подход C4, для LLD — представление поведения arc42. Mermaid служит компактной нотацией; это не полная формальная модель C4. Подписи схем и объяснения — на русском. Код, названия протоколов и идентификаторы полей сохраняют техническое написание.
+Для HLD использован подход C4. Mermaid служит компактной нотацией; это не полная формальная модель C4. Подписи схем и объяснения — на русском. Код, названия протоколов и идентификаторы полей сохраняют техническое написание.
 
-ADR уже есть в upstream. Наш пример добавляет YAML-метаданные, схему и связи с HLD/LLD; он не вводит второй процесс принятия решений. Спецификации, планы и карты возможностей здесь повторно не иллюстрируются: их примеры есть в [upstream skill](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/spec-driven-development/SKILL.md). В продукте содержание этих документов также пишется на русском.
+SPEC, планы, задачи, CONSTRAINTS, ADR и CHANGELOG — артефакты upstream skills; этот каталог их не иллюстрирует и не каталогизирует. Форму и процесс ADR задаёт upstream skill [documentation-and-adrs](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/documentation-and-adrs/SKILL.md). Примеры спецификаций и планов есть в [spec-driven-development](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/spec-driven-development/SKILL.md) и [planning-and-task-breakdown](https://github.com/addyosmani/agent-skills/blob/8c99fa36d90068c82d547f7c12a9d67a3e95f4ee/skills/planning-and-task-breakdown/SKILL.md). В продукте содержание этих upstream-документов также пишется на русском.
 
 ## Проверенные публичные референсы
 

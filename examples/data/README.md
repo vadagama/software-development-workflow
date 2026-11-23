@@ -8,7 +8,7 @@ language: ru
 owner: "Учебная команда бронирования"
 created: "2026-11-21"
 updated: "2026-11-21"
-related: [ADR-0101, LLD-101]
+related: []
 ---
 
 # Данные бронирования
@@ -58,4 +58,4 @@ erDiagram
 
 В продукте сюда добавляются ссылки на реальные миграции и ограничения. Сейчас их нет, поэтому документ остаётся черновиком. Проверки: конкурентная запись, повтор ключа, внешние связи и атомарность брони с событием.
 
-См. [ADR](../decisions/ADR-0101.md) и [LLD](../lld/booking.md). Референс нотации: [ER-диаграммы Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
+Референс нотации: [ER-диаграммы Mermaid](https://mermaid.js.org/syntax/entityRelationshipDiagram.html).
